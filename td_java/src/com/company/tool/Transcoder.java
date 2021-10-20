@@ -1,69 +1,70 @@
 package com.company.tool;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.HashMap;
 
 public class Transcoder {
+    protected String message;
+    protected HashMap<String, String> cleDecode = new HashMap<>();
+    protected HashMap<String, String> cleCode = new HashMap<>();
+    protected String code;
+    protected String resultat;
 
-    HashMap<String, String> cleDecode = new HashMap<>();
-
-    public Transcoder() {
-        cleDecode.put("AA", "C");
-        cleDecode.put("AB", "F");
-        cleDecode.put("AC", "f");
-        cleDecode.put("AD", "r");
-        cleDecode.put("AE", "k");
-        cleDecode.put("AF", "o");
-        cleDecode.put("AG", "w");
-        cleDecode.put("AH", "I");
-        cleDecode.put("AI", ".");
-        cleDecode.put("AJ", "a");
-        cleDecode.put("AK", "D");
-        cleDecode.put("AL", "z");
-        cleDecode.put("AM", "y");
-        cleDecode.put("AN", "S");
-        cleDecode.put("AO", ":");
-        cleDecode.put("AP", "e");
-        cleDecode.put("AQ", "H");
-        cleDecode.put("AR", "j");
-        cleDecode.put("AS", "s");
-        cleDecode.put("AT", "G");
-        cleDecode.put("AU", "P");
-        cleDecode.put("AV", "Z");
-        cleDecode.put("AW", "g");
-        cleDecode.put("AX", "M");
-        cleDecode.put("AY", "A");
-        cleDecode.put("AZ", "p");
-        cleDecode.put("BA", "W");
-        cleDecode.put("BB", "v");
-        cleDecode.put("BC", "R");
-        cleDecode.put("BD", "Y");
-        cleDecode.put("BE", "V");
-        cleDecode.put("BF", "m");
-        cleDecode.put("BG", "t");
-        cleDecode.put("BH", "n");
-        cleDecode.put("BI", "K");
-        cleDecode.put("BJ", "!");
-        cleDecode.put("BK", "B");
-        cleDecode.put("BL", "u");
-        cleDecode.put("BM", "U");
-        cleDecode.put("BN", " ");
-        cleDecode.put("BO", "l");
-        cleDecode.put("BP", "Q");
-        cleDecode.put("BQ", "i");
-        cleDecode.put("BR", "E");
-        cleDecode.put("BS", "X");
-        cleDecode.put("BT", "T");
-        cleDecode.put("BU", "x");
-        cleDecode.put("BV", "b");
-        cleDecode.put("BW", "q");
-        cleDecode.put("BX", "h");
-        cleDecode.put("BY", "L");
-        cleDecode.put("BZ", "d");
-        cleDecode.put("CA", "N");
-        cleDecode.put("CB", "J");
-        cleDecode.put("CC", "O");
-        cleDecode.put("CD", ",");
-        cleDecode.put("CE", "'");
-        cleDecode.put("CF", "c");
+    /**
+     * getter pour récupérer le message coder ou décoder selon le besoin
+     *
+     * @return le message coder ou décoder
+     */
+    public String getResultat() {
+        return resultat;
     }
+
+    /**
+     * écrit la hashmap en suivant la clé de référence
+     */
+    public Transcoder(String cle, String text) {
+        code = cle;
+        message = StringUtils.stripAccents(text);
+        char value1 = 'A';
+        char value2 = 'A';
+
+        for (int c = 0; c < code.length(); c++) {
+            String result = "";
+            result += value1;
+            result += value2;
+            cleDecode.put(result, code.substring(c, c + 1));
+            cleCode.put(code.substring(c, c + 1), result);
+            value2++;
+            if (value2 > 'Z') {
+                value1++;
+                value2 = 'A';
+            }
+        }
+    }
+
+    /**
+     * prend le message, le compare a la hashmap et le code/décode selon le besoin
+     */
+    public String decodeMessage() {
+        resultat = "";
+        for (int i = 0; i < message.length(); i += 2) {
+            String decypt = message.substring(i, i + 2);
+            resultat += cleDecode.get(decypt);
+        }
+        return resultat;
+    }
+
+    /**
+     * prend le message, le compare a la hashmap et le code/décode selon le besoin
+     */
+    public String codeMessage() {
+        resultat = "";
+        for (int i = 0; i < message.length(); i++) {
+            String decypt = message.substring(i, i + 1);
+            resultat += cleCode.get(decypt);
+        }
+        return resultat;
+    }
+
 }

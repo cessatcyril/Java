@@ -1,6 +1,7 @@
 package test.java;
 
 
+import com.company.tool.*;
 import org.apache.commons.lang3.StringUtils;
 import org.germain.tool.ManaBox;
 import org.junit.Assert;
@@ -18,6 +19,7 @@ public class ReadKeyTest {
         Assert.assertEquals("La librairie de décryptage est mal installée", keyDecrypted, ManaBox.decrypt(keyCrypted));
 
     }
+
     @Test
     public void stripAccent() {
         //la chaine normal
@@ -27,6 +29,31 @@ public class ReadKeyTest {
         //le test d'égalité
         Assert.assertEquals("la librairie de lang est mal installée", chaineAttendue, StringUtils.stripAccents(chaineAccent));
     }
+
+    @Test
+    public void decode1() {
+        String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
+        String message = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
+        String resultat = "Les tests sont la pour essayer !!!";
+        Assert.assertEquals(resultat, new Transcoder(cle, message).decodeMessage());
+    }
+
+    @Test
+    public void code1(){
+        String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
+        String resultat = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
+        String message = "Les tests sont la pour essayer !!!";
+        Assert.assertEquals(resultat, new Transcoder(cle, message).codeMessage());
+    }
+
+    @Test
+    public void code2(){
+        String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
+        String resultat = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
+        String message = "Lès tèsts sônt là pour éssayér !!!";
+        Assert.assertEquals(resultat, new Transcoder(cle, message).codeMessage());
+    }
+
 
 
 }
