@@ -5,36 +5,23 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.HashMap;
 
 public class Transcoder {
-    protected String message;
-    protected HashMap<String, String> cleDecode = new HashMap<>();
-    protected HashMap<String, String> cleCode = new HashMap<>();
-    protected String code;
-    protected String resultat;
+    private HashMap<String, String> cleDecode = new HashMap<>();
+    private HashMap<String, String> cleCode = new HashMap<>();
 
-    /**
-     * getter pour récupérer le message coder ou décoder selon le besoin
-     *
-     * @return le message coder ou décoder
-     */
-    public String getResultat() {
-        return resultat;
-    }
 
     /**
      * écrit la hashmap en suivant la clé de référence
      */
-    public Transcoder(String cle, String text) {
-        code = cle;
-        message = StringUtils.stripAccents(text);
+    public Transcoder(String cle) {
         char value1 = 'A';
         char value2 = 'A';
 
-        for (int c = 0; c < code.length(); c++) {
+        for (int c = 0; c < cle.length(); c++) {
             String result = "";
             result += value1;
             result += value2;
-            cleDecode.put(result, code.substring(c, c + 1));
-            cleCode.put(code.substring(c, c + 1), result);
+            cleDecode.put(result, cle.substring(c, c + 1));
+            cleCode.put(cle.substring(c, c + 1), result);
             value2++;
             if (value2 > 'Z') {
                 value1++;
@@ -46,10 +33,11 @@ public class Transcoder {
     /**
      * prend le message, le compare a la hashmap et le code/décode selon le besoin
      */
-    public String decodeMessage() {
-        resultat = "";
-        for (int i = 0; i < message.length(); i += 2) {
-            String decypt = message.substring(i, i + 2);
+    public String decodeMessage(String text) {
+        String resultat = "";
+        text = StringUtils.stripAccents(text);
+        for (int i = 0; i < text.length(); i += 2) {
+            String decypt = text.substring(i, i + 2);
             resultat += cleDecode.get(decypt);
         }
         return resultat;
@@ -58,10 +46,11 @@ public class Transcoder {
     /**
      * prend le message, le compare a la hashmap et le code/décode selon le besoin
      */
-    public String codeMessage() {
-        resultat = "";
-        for (int i = 0; i < message.length(); i++) {
-            String decypt = message.substring(i, i + 1);
+    public String codeMessage(String text) {
+        String resultat = "";
+        text = StringUtils.stripAccents(text);
+        for (int i = 0; i < text.length(); i++) {
+            String decypt = text.substring(i, i + 1);
             resultat += cleCode.get(decypt);
         }
         return resultat;

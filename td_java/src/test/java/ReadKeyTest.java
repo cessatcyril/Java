@@ -35,25 +35,24 @@ public class ReadKeyTest {
         String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
         String message = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
         String resultat = "Les tests sont la pour essayer !!!";
-        Assert.assertEquals(resultat, new Transcoder(cle, message).decodeMessage());
+        Assert.assertEquals(resultat, new Transcoder(cle).decodeMessage(message));
     }
 
     @Test
-    public void code1(){
+    public void code1() {
         String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
         String resultat = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
         String message = "Les tests sont la pour essayer !!!";
-        Assert.assertEquals(resultat, new Transcoder(cle, message).codeMessage());
+        Assert.assertEquals(resultat, new Transcoder(cle).codeMessage(message));
     }
 
     @Test
-    public void code2(){
+    public void code2() {
         String cle = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
         String resultat = "BYAPASBNBGAPASBGASBNASAFBHBGBNAHAJBNAZAFBLADBNAPASASAJAMAPADBNBJBJBJ";
         String message = "Lès tèsts sônt là pour éssayér !!!";
-        Assert.assertEquals(resultat, new Transcoder(cle, message).codeMessage());
+        Assert.assertEquals(resultat, new Transcoder(cle).codeMessage(message));
     }
-
 
 
 }
