@@ -1,9 +1,12 @@
 package com.company;
 
+import com.company.gui.MenuMessage;
 import com.company.model.Message;
 import com.company.tool.*;
 import org.germain.tool.ManaBox;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,8 +35,11 @@ public class Main {
         //message.readNwrite("encoded.txt","key.txt");
 
         //encoder
-        Message message1 = new Message(false, home, home, home);
-        message1.readNwrite("decoded.txt", "key.txt");
+        //Message message1 = new Message(false, home, home, home);
+        //message1.readNwrite("decoded.txt", "key.txt");
+
+
+        MenuMessage message = new MenuMessage();
 
 
     }
