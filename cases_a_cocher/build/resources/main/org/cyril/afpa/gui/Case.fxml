@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="470.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.CaseController">
+   <children>
+      <TextField fx:id="textInput" layoutX="28.0" layoutY="63.0" onKeyTyped="#textinput_write" prefHeight="40.0" prefWidth="400.0" />
+      <HBox layoutX="28.0" layoutY="285.0" spacing="75.0">
+         <children>
+            <TitledPane fx:id="fondRadio" animated="false" collapsible="false" disable="true" prefHeight="150.0" prefWidth="200.0" text="Fond">
+              <content>
+                <AnchorPane>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="fondRouge" mnemonicParsing="false" onAction="#fondRouge_cocher" prefWidth="105.0" text="Rouge">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="fond1" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="fondVert" mnemonicParsing="false" onAction="#fondVert_cocher" text="Vert" toggleGroup="$fond1" />
+                              <RadioButton fx:id="fondBleu" mnemonicParsing="false" onAction="#fondBleu_cocher" text="Bleu" toggleGroup="$fond1" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane fx:id="texteRadio" animated="false" collapsible="false" disable="true" prefHeight="150.0" prefWidth="200.0" text="Texte">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="texteRouge" mnemonicParsing="false" onAction="#texteRouge_cocher" prefWidth="105.0" text="Rouge">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="text1" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="texteBlanc" mnemonicParsing="false" onAction="#texteBlanc_cocher" text="Blanc" toggleGroup="$text1" />
+                              <RadioButton fx:id="texteNoir" mnemonicParsing="false" onAction="#texteNoir_cocher" text="Noir" toggleGroup="$text1" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane fx:id="casseRadio" animated="false" collapsible="false" disable="true" prefHeight="150.0" prefWidth="200.0" text="Casse">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="casseMinuscule" mnemonicParsing="false" onAction="#casseMinuscule_cocher" prefWidth="105.0" text="Minuscule">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="casse1" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="casseMajuscule" mnemonicParsing="false" onAction="#casseMajuscule_cocher" text="Majuscule" toggleGroup="$casse1" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+         </children>
+      </HBox>
+      <TitledPane fx:id="choixCheck" animated="false" collapsible="false" disable="true" layoutX="476.0" layoutY="42.0" text="Choix">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="300.0">
+               <children>
+                  <VBox layoutX="14.0" layoutY="27.0" spacing="20.0">
+                     <children>
+                        <CheckBox fx:id="couleurFond" mnemonicParsing="false" onAction="#couleurFond_check" text="Couleur du fond" />
+                        <CheckBox fx:id="couleurText" mnemonicParsing="false" onAction="#couleurText_check" text="Couleur du texte" />
+                        <CheckBox fx:id="casse" mnemonicParsing="false" onAction="#casse_check" text="Casse" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Label fx:id="resultat" layoutX="28.0" layoutY="140.0" prefHeight="40.0" prefWidth="400.0" />
+   </children>
+</AnchorPane>
