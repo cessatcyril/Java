@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 
+import java.util.Locale;
+import java.util.regex.Pattern;
+
 public class CaseController {
 
     @FXML
@@ -58,85 +61,90 @@ public class CaseController {
     @FXML
     private RadioButton texteRouge;
 
-    private String resultatStyle = "";
+    private String resultatStyleCasse;
+
+    private String resultatStyleFond ="-fx-background-color: whitesmoke;";
+
+    private String resultatStyleText = "-fx-text-fill: black;";
 
     @FXML
     void casseMajuscule_cocher(ActionEvent event) {
-        resultat.setText( textInput.getText().toUpperCase());
+        resultatStyleCasse = textInput.getText().toUpperCase();
+        resultat.setText(resultatStyleCasse);
     }
 
     @FXML
     void casseMinuscule_cocher(ActionEvent event) {
-        resultat.setText( textInput.getText().toLowerCase());
+        resultatStyleCasse = textInput.getText().toLowerCase();
+        resultat.setText(resultatStyleCasse);
     }
 
     @FXML
     void casse_check(ActionEvent event) {
-        if (casseRadio.isDisabled()) {
-            casseRadio.setDisable(false);
-        } else {
-            casseRadio.setDisable(true);
-        }
+        casseRadio.setDisable(!casseRadio.isDisabled());
+        getResult();
     }
 
     @FXML
     void couleurFond_check(ActionEvent event) {
-        if (fondRadio.isDisabled()) {
-            fondRadio.setDisable(false);
-        } else {
-            fondRadio.setDisable(true);
-        }
+        fondRadio.setDisable(!fondRadio.isDisabled());
+        getResult();
     }
 
     @FXML
     void couleurText_check(ActionEvent event) {
-        if (texteRadio.isDisabled()) {
-            texteRadio.setDisable(false);
-        } else {
-            texteRadio.setDisable(true);
-        }
+        texteRadio.setDisable(!texteRadio.isDisabled());
+        getResult();
     }
 
     @FXML
     void fondBleu_cocher(ActionEvent event) {
-        resultatStyle += "-fx-background-color: blue";
-        resultat.setStyle(resultatStyle);
+        resultatStyleFond = "-fx-background-color: blue;";
+        getResult();
     }
 
     @FXML
     void fondRouge_cocher(ActionEvent event) {
-        resultat.setStyle("-fx-background-color: red");
+        resultatStyleFond = "-fx-background-color: red;";
+        getResult();
     }
 
     @FXML
     void fondVert_cocher(ActionEvent event) {
-        resultat.setStyle("-fx-background-color: green");
+        resultatStyleFond = "-fx-background-color: green;";
+        getResult();
 
     }
 
     @FXML
     void texteBlanc_cocher(ActionEvent event) {
-        resultat.setStyle("-fx-text-fill: white");
+        resultatStyleText = "-fx-text-fill: white;";
+        getResult();
     }
 
     @FXML
     void texteNoir_cocher(ActionEvent event) {
-        resultat.setStyle("-fx-text-fill: black");
+        resultatStyleText = "-fx-text-fill: black;";
+        getResult();
     }
 
     @FXML
     void texteRouge_cocher(ActionEvent event) {
-        resultat.setStyle("-fx-text-fill: red");
+        resultatStyleText = "-fx-text-fill: red;";
+        getResult();
     }
 
     @FXML
     void textinput_write(KeyEvent event) {
         choixCheck.setDisable(false);
-        getResult();
+        resultat.setText(textInput.getText());
     }
 
     @FXML
     public void getResult() {
-        resultat.setText(textInput.getText());
+        String result = resultatStyleText + resultatStyleFond;
+        resultat.setStyle(result);
     }
+
+
 }
