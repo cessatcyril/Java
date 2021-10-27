@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.TableViewController">
+   <children>
+      <HBox spacing="25.0">
+         <children>
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Le tableau de l'exo">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="lst_clients" prefHeight="450.0" prefWidth="450.0">
+                    <columns>
+                      <TableColumn fx:id="col_prenom" prefWidth="150.0" text="Prénom" />
+                      <TableColumn fx:id="col_nom" prefWidth="150.0" text="Nom" />
+                        <TableColumn fx:id="col_ville" prefWidth="150.0" text="Ville" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox spacing="50.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <VBox spacing="10.0">
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="150.0" text="Prénom">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txt_prenom" prefHeight="40.0" prefWidth="150.0" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="150.0" text="Nom">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txt_nom" prefHeight="40.0" prefWidth="150.0" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="150.0" text="Ville">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txt_ville" prefHeight="40.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="20.0">
+                     <children>
+                        <HBox spacing="20.0">
+                           <children>
+                              <Button fx:id="btn_sauver" mnemonicParsing="false" onAction="#sauver" prefHeight="40.0" prefWidth="90.0" text="Sauver">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btn_annuler" mnemonicParsing="false" onAction="#annuler" prefHeight="40.0" prefWidth="90.0" text="Annuler">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btn_supprimer" mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="200.0" text="Supprimer">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
