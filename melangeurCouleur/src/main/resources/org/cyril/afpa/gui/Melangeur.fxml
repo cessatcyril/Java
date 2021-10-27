@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.MelangeurController">
+   <children>
+      <VBox alignment="CENTER" spacing="25.0">
+         <children>
+            <VBox>
+               <children>
+                  <Pane fx:id="colorTotal" prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: purple;" />
+               </children>
+            </VBox>
+            <VBox spacing="25.0">
+               <children>
+                  <HBox alignment="CENTER" spacing="25.0">
+                     <children>
+                        <Slider fx:id="sliderRed" prefWidth="350.0" />
+                        <Pane fx:id="colorRed" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="25.0">
+                     <children>
+                        <Slider fx:id="sliderGreen" prefWidth="350.0" />
+                        <Pane fx:id="colorGreen" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: green;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="25.0">
+                     <children>
+                        <Slider fx:id="sliderBlue" prefWidth="350.0" />
+                        <Pane fx:id="colorBlue" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: blue;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
