@@ -16,12 +16,13 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
+
 test {
     useJUnitPlatform()
 }
 javafx {
     version = "17.0.1"
-    modules = ["javafx.controls","javafx.base","javafx.graphics","javafx.fxml"]
+    modules = ["javafx.controls", "javafx.base", "javafx.graphics", "javafx.fxml"]
 }
 
 mainClassName = 'org.cyril.afpa.App'

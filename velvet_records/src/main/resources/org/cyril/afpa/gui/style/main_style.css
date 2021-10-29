@@ -1,0 +1,16 @@
+* {
+    //-fx-background-color: #512b58;
+}
+
+.main-title {
+    -fx-font-family: "Arial Rounded NT Bold";
+    -fx-font-size: 30pt;
+    -fx-text-fill: #ffa372;
+    -fx-font-weight: bold;
+    -fx-underline: true;
+}
+
+.content-text{
+    -fx-font-size: 15pt;
+    -fx-text-fill: #ffa372;
+}
