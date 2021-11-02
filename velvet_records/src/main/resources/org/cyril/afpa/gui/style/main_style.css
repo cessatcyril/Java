@@ -1,6 +1,11 @@
 * {
-    //-fx-background-color: #512b58;
+
 }
+
+.transparent{
+    -fx-background-color: transparent;
+}
+
 
 .main-title {
     -fx-font-family: "Arial Rounded NT Bold";

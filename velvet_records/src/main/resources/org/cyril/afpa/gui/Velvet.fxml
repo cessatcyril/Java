@@ -8,9 +8,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane stylesheets="@style/main_style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.VelvetController">
+<AnchorPane styleClass="transparent" stylesheets="@style/main_style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.VelvetController">
    <children>
-      <VBox layoutX="8.0" layoutY="7.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <ImageView fitHeight="429.0" fitWidth="501.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pictures/velvetBlog.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="38.0" layoutY="109.0" spacing="10.0" AnchorPane.bottomAnchor="-99.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="109.0">
          <children>
             <Label styleClass="main-title" text="Velvet Records" />
             <HBox spacing="10.0">
@@ -43,4 +48,7 @@
          </children>
       </VBox>
    </children>
+   <effect>
+      <InnerShadow />
+   </effect>
 </AnchorPane>
