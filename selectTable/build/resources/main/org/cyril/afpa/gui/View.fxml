@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyril.afpa.gui.ViewController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <HBox spacing="20.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="120.0" text="Code fournisseur" />
+                        <TextField fx:id="recherche" prefHeight="30.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnRecherche" mnemonicParsing="false" onAction="#selectFournisseur" prefHeight="30.0" prefWidth="100.0" text="Recherche" />
+               </children>
+            </HBox>
+            <VBox spacing="20.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label blendMode="SRC_ATOP" text="Informations fournisseur" />
+                        <Pane prefHeight="280.0" prefWidth="500.0" style="-fx-border-color: black;">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="25.0" layoutY="50.0" spacing="20.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="90.0" text="Nom" />
+                                          <TextField fx:id="nomFourni" prefHeight="30.0" prefWidth="320.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="90.0" text="Adresse" />
+                                          <TextField fx:id="adresseFourni" prefHeight="30.0" prefWidth="320.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="90.0" text="CP / Ville" />
+                                          <HBox spacing="20.0">
+                                             <children>
+                                                <TextField fx:id="CodePostalFourni" prefHeight="30.0" prefWidth="100.0" />
+                                                <TextField fx:id="villeFourni" prefHeight="30.0" prefWidth="200.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="90.0" text="Contact" />
+                                          <TextField fx:id="contactFourni" prefHeight="30.0" prefWidth="320.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <TextField fx:id="erreur" layoutX="115.0" layoutY="14.0" prefHeight="30.0" prefWidth="320.0" style="-fx-background-color: WHITESMOKE;" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
